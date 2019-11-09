@@ -21,4 +21,20 @@ public class CalculatorService {
         return num1 / num2;
     }
 
+    public int mod(int num1, int num2) {
+        return num1 % num2;
+    }
+
+    public int min(int num1, int num2) {
+        return Math.min(num1, num2);
+    }
+
+    public int max(int num1, int num2) {
+        return Math.max(num1, num2);
+    }
+
+    public int pow(int num1, int num2) {
+        return (int) Math.pow(num1, num2);
+    }
+
 }
