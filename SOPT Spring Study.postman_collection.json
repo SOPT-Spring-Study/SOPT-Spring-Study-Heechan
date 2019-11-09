@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "e27b10bb-5c9f-47b4-a0fc-0869a33f0aef",
+		"name": "SOPT Spring Study",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hello",
+			"item": [
+				{
+					"name": "hello",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/hello/hello",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"hello",
+								"hello"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "calculator",
+			"item": [
+				{
+					"name": "sum",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculator/sum?num1=7&num2=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator",
+								"sum"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "7"
+								},
+								{
+									"key": "num2",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sub",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculator/sub?num1=7&num2=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator",
+								"sub"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "7"
+								},
+								{
+									"key": "num2",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mul",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculator/mul?num1=2&num2=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator",
+								"mul"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "2"
+								},
+								{
+									"key": "num2",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "div",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculator/div?num1=8&num2=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator",
+								"div"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "8"
+								},
+								{
+									"key": "num2",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mod",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculator/mod?num1=8&num2=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator",
+								"mod"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "8"
+								},
+								{
+									"key": "num2",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "min",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculator/min?num1=8&num2=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator",
+								"min"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "8"
+								},
+								{
+									"key": "num2",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "max",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculator/max?num1=8&num2=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator",
+								"max"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "8"
+								},
+								{
+									"key": "num2",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pow",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/calculator/pow?num1=2&num2=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"calculator",
+								"pow"
+							],
+							"query": [
+								{
+									"key": "num1",
+									"value": "2"
+								},
+								{
+									"key": "num2",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "string",
+			"item": [
+				{
+					"name": "append",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/string/append?str1=my name is &str2=Heechan, Yang",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"string",
+								"append"
+							],
+							"query": [
+								{
+									"key": "str1",
+									"value": "my name is "
+								},
+								{
+									"key": "str2",
+									"value": "Heechan, Yang"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contains",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/string/contains?str1=HeechanYang&str2=Heechan",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"string",
+								"contains"
+							],
+							"query": [
+								{
+									"key": "str1",
+									"value": "HeechanYang"
+								},
+								{
+									"key": "str2",
+									"value": "Heechan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "len",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/string/len?str1=my name is",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"string",
+								"len"
+							],
+							"query": [
+								{
+									"key": "str1",
+									"value": "my name is"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "equals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/string/equals?str1=Heechan, Yang&str2=Heechan, Yang",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"string",
+								"equals"
+							],
+							"query": [
+								{
+									"key": "str1",
+									"value": "Heechan, Yang"
+								},
+								{
+									"key": "str2",
+									"value": "Heechan, Yang"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
