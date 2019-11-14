@@ -5,7 +5,7 @@ public class Member {
     private String email;
     private String password;
     private String name;
-    private String contacts;
+    private String phoneNumber;
 
     public int getId() {
         return id;
@@ -39,11 +39,11 @@ public class Member {
         this.name = name;
     }
 
-    public String getContacts() {
-        return contacts;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setContacts(String contacts) {
-        this.contacts = contacts;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
