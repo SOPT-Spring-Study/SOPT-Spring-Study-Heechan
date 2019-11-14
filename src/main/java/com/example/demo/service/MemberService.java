@@ -30,7 +30,7 @@ public class MemberService {
         return members;
     }
 
-    public Member getMember(int memberId) {
+    public Member getMemberById(int memberId) {
         for(Member member : members){
             if(member.getId() == memberId){
                 return member;
@@ -40,18 +40,21 @@ public class MemberService {
         return null;
     }
 
-    public Member updateMember(int memberId, Member updatedMember) {
+    public Member putMember(int memberId, Member puttedMember) {
         for(Member member : members){
             if(member.getId() == memberId){
-                member.setEmail(updatedMember.getEmail());
-                member.setPassword(updatedMember.getPassword());
-                member.setName(updatedMember.getName());
-                member.setPhoneNumber(updatedMember.getPhoneNumber());
+                member.setEmail(puttedMember.getEmail());
+                member.setPassword(puttedMember.getPassword());
+                member.setName(puttedMember.getName());
+                member.setPhoneNumber(puttedMember.getPhoneNumber());
                 return member;
             }
         }
 
-        return null;
+        puttedMember.setId(autoIncrement++);
+        members.add(puttedMember);
+
+        return puttedMember;
     }
 
     public Member deleteMember(int memberId) {

@@ -28,12 +28,12 @@ public class BorrowingController {
         return borrowingService.searchBorrowings(memberId, bookId);
     }
 
-    @PutMapping("/return/books/{bookId}")
+    @PatchMapping("/return/books/{bookId}")
     public Borrowing returnBook(@PathVariable("bookId") int bookId) {
         return borrowingService.returnBook(bookId);
     }
 
-    @PutMapping("/extension/books/{bookId}")
+    @PatchMapping("/extension/books/{bookId}")
     public Borrowing extendDate(@PathVariable("bookId") int bookId) {
         return borrowingService.extendDate(bookId);
     }

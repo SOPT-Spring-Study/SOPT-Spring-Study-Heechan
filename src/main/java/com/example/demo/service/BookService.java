@@ -22,7 +22,7 @@ public class BookService {
         return books;
     }
 
-    public Book getBook(int bookId) {
+    public Book getBookById(int bookId) {
         for(Book book : books){
             if(book.getId() == bookId){
                 return book;
@@ -32,16 +32,19 @@ public class BookService {
         return null;
     }
 
-    public Book updateBook(int bookId, Book updatedBook) {
+    public Book putBook(int bookId, Book puttedBook) {
         for(Book book : books){
             if(book.getId() == bookId){
-                book.setAuthor(updatedBook.getAuthor());
-                book.setName(updatedBook.getName());
+                book.setAuthor(puttedBook.getAuthor());
+                book.setName(puttedBook.getName());
                 return book;
             }
         }
 
-        return null;
+        puttedBook.setId(autoIncrement++);
+        books.add(puttedBook);
+
+        return puttedBook;
     }
 
     public Book deleteBook(int bookId) {

@@ -28,13 +28,13 @@ public class BookController {
 
     @GetMapping("/{bookId}")
     public Book getBook(@PathVariable("bookId") int bookId){
-        return bookService.getBook(bookId);
+        return bookService.getBookById(bookId);
     }
 
     @PutMapping("/{bookId}")
-    public Book updateBook(@PathVariable("bookId") int bookId,
-                               @RequestBody Book updatedBook){
-        return bookService.updateBook(bookId, updatedBook);
+    public Book putBook(@PathVariable("bookId") int bookId,
+                        @RequestBody Book puttedBook){
+        return bookService.putBook(bookId, puttedBook);
     }
 
     @DeleteMapping("/{bookId}")

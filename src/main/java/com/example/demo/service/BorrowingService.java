@@ -27,8 +27,8 @@ public class BorrowingService {
     }
 
     public Borrowing borrowBook(int memberId, int bookId) {
-        Member member = memberService.getMember(memberId);
-        Book book = bookService.getBook(bookId);
+        Member member = memberService.getMemberById(memberId);
+        Book book = bookService.getBookById(bookId);
 
         if (book.isOut()) {
             return null;
