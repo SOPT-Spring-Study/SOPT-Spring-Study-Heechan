@@ -4,6 +4,7 @@ public class Book {
     private int id;
     private String name;
     private String author;
+    private boolean isOut;
 
     public int getId() {
         return id;
@@ -27,5 +28,13 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public boolean isOut() {
+        return isOut;
+    }
+
+    public void setOut(boolean out) {
+        isOut = out;
     }
 }
