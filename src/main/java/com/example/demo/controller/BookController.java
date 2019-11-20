@@ -16,12 +16,12 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @PostMapping("")
+    @PostMapping
     public Book saveBook(@RequestBody Book newBook){
         return bookService.saveBook(newBook);
     }
 
-    @GetMapping("")
+    @GetMapping
     public List<Book> getAllBooks(){
         return bookService.getAllBooks();
     }

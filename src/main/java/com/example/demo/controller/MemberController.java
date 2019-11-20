@@ -16,12 +16,12 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @PostMapping("")
+    @PostMapping
     public Member saveMember(@RequestBody Member newMember){
         return memberService.saveMember(newMember);
     }
 
-    @GetMapping("")
+    @GetMapping
     public List<Member> getAllMembers(){
         return memberService.getAllMembers();
     }
