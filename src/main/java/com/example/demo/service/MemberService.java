@@ -1,70 +1,36 @@
 package com.example.demo.service;
 
+import com.example.demo.mapper.MemberMapper;
 import com.example.demo.model.Member;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class MemberService {
-    private List<Member> members = new ArrayList<>();
-    private int autoIncrement = 1;
+    private final MemberMapper memberMapper;
 
-    public Member saveMember(Member newMember){
-        // 중복 Email 있는지 확인해서 중복 Email이 있으면 null 반환
-        for(Member member : members){
-            if(member.getEmail().equals(newMember.getEmail())){
-                return null;
-            }
-        }
+    public MemberService(MemberMapper memberMapper) {
+        this.memberMapper = memberMapper;
+    }
 
-        // 중복 Email이 없으면 리스트에 추가한 후 해당 멤버 다시 반환
-        newMember.setId(autoIncrement++);
-        members.add(newMember);
-
-        return newMember;
+    public boolean saveMember(Member newMember) {
+        return memberMapper.insertMember(newMember) != 0;
     }
 
     public List<Member> getAllMembers() {
-        return members;
+        return memberMapper.getAllMembers();
     }
 
     public Member getMemberById(int memberId) {
-        for(Member member : members){
-            if(member.getId() == memberId){
-                return member;
-            }
-        }
-
-        return null;
+        return memberMapper.getMemberById(memberId);
     }
 
-    public Member putMember(int memberId, Member puttedMember) {
-        for(Member member : members){
-            if(member.getId() == memberId){
-                member.setEmail(puttedMember.getEmail());
-                member.setPassword(puttedMember.getPassword());
-                member.setName(puttedMember.getName());
-                member.setPhoneNumber(puttedMember.getPhoneNumber());
-                return member;
-            }
-        }
-
-        puttedMember.setId(autoIncrement++);
-        members.add(puttedMember);
-
-        return puttedMember;
+    public boolean putMember(int memberId, Member puttedMember) {
+        return memberMapper.updateMember(memberId, puttedMember) != 0;
     }
 
-    public Member deleteMember(int memberId) {
-        for(Member member : members){
-            if(member.getId() == memberId){
-                members.remove(member);
-                return member;
-            }
-        }
-
-        return null;
+    public boolean deleteMember(int memberId) {
+        return memberMapper.deleteMember(memberId) != 0;
     }
 }

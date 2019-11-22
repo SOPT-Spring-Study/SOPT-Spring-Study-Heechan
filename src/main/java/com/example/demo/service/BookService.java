@@ -36,7 +36,7 @@ public class BookService {
         for(Book book : books){
             if(book.getId() == bookId){
                 book.setAuthor(puttedBook.getAuthor());
-                book.setName(puttedBook.getName());
+                book.setTitle(puttedBook.getTitle());
                 return book;
             }
         }
