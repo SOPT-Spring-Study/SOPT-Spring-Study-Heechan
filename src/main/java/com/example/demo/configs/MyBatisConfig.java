@@ -25,7 +25,7 @@ public class MyBatisConfig {
     private static final String RDS_DATABASE_NAME = "sopt-spring-library";
     private static final String CONNECTION_OPTION = "useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC";
     private static final String RDS_USER_NAME = "root";
-    private static final String RDS_PASSWORD = "yks12512";
+    private static final String RDS_USER_PASSWORD = "12341234";
 
     @Bean
     public DataSource getDataSource() {
@@ -34,7 +34,7 @@ public class MyBatisConfig {
         dataSource.setUrl(String.format("jdbc:mysql://%s:%d/%s?%s",
                 RDS_ENDPOINT, RDS_PORT, RDS_DATABASE_NAME, CONNECTION_OPTION));
         dataSource.setUsername(RDS_USER_NAME);
-        dataSource.setPassword(RDS_PASSWORD);
+        dataSource.setPassword(RDS_USER_PASSWORD);
 
         return dataSource;
     }
