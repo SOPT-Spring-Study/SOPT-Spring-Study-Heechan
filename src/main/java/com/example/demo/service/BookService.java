@@ -1,60 +1,36 @@
 package com.example.demo.service;
 
+import com.example.demo.mapper.BookMapper;
 import com.example.demo.model.Book;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class BookService {
-    private List<Book> books = new ArrayList<>();
-    private int autoIncrement = 1;
+    private final BookMapper bookMapper;
 
-    public Book saveBook(Book newBook){
-        newBook.setId(autoIncrement++);
-        books.add(newBook);
+    public BookService(BookMapper bookMapper) {
+        this.bookMapper = bookMapper;
+    }
 
-        return newBook;
+    public boolean saveBook(Book newBook) {
+        return bookMapper.insertBook(newBook) != 0;
     }
 
     public List<Book> getAllBooks() {
-        return books;
+        return bookMapper.getAllBooks();
     }
 
     public Book getBookById(int bookId) {
-        for(Book book : books){
-            if(book.getId() == bookId){
-                return book;
-            }
-        }
-
-        return null;
+        return bookMapper.getBookById(bookId);
     }
 
-    public Book putBook(int bookId, Book puttedBook) {
-        for(Book book : books){
-            if(book.getId() == bookId){
-                book.setAuthor(puttedBook.getAuthor());
-                book.setName(puttedBook.getName());
-                return book;
-            }
-        }
-
-        puttedBook.setId(autoIncrement++);
-        books.add(puttedBook);
-
-        return puttedBook;
+    public boolean putBook(int bookId, Book puttedBook) {
+        return bookMapper.updateBook(bookId, puttedBook) != 0;
     }
 
-    public Book deleteBook(int bookId) {
-        for(Book book : books){
-            if(book.getId() == bookId){
-                books.remove(book);
-                return book;
-            }
-        }
-
-        return null;
+    public boolean deleteBook(int bookId) {
+        return bookMapper.deleteBook(bookId) != 0;
     }
 }

@@ -17,7 +17,7 @@ public class MemberController {
     }
 
     @PostMapping
-    public Member saveMember(@RequestBody Member newMember){
+    public boolean saveMember(@RequestBody Member newMember){
         return memberService.saveMember(newMember);
     }
 
@@ -32,13 +32,13 @@ public class MemberController {
     }
 
     @PutMapping("/{memberId}")
-    public Member putMember(@PathVariable("memberId") int memberId,
+    public boolean putMember(@PathVariable("memberId") int memberId,
                                @RequestBody Member puttedMember){
         return memberService.putMember(memberId, puttedMember);
     }
 
     @DeleteMapping("/{memberId}")
-    public Member deleteMember(@PathVariable("memberId") int memberId){
+    public boolean deleteMember(@PathVariable("memberId") int memberId){
         return memberService.deleteMember(memberId);
     }
 }

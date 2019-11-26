@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.BorrowingMapper">
+
+    <resultMap id="BorrowingResult" type="com.example.demo.model.Borrowing">
+        <id property="id" column="id" />
+        <result property="startTime" column="start_time"/>
+        <result property="expiryTime" column="expiry_time"/>
+        <result property="returnTime" column="return_time" />
+        <association property="member" resultMap="MemberResult"/>
+        <association property="book" resultMap="BookResult"/>
+    </resultMap>
+
+    <resultMap id="MemberResult" type="com.example.demo.model.Member">
+        <id property="id" column="member_id"/>
+        <result property="email" column="email"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="phoneNumber" column="phone_number"/>
+    </resultMap>
+
+    <resultMap id="BookResult" type="com.example.demo.model.Book">
+        <id property="id" column="book_id"/>
+        <result property="title" column="title"/>
+        <result property="author" column="author"/>
+        <result property="out" column="out"/>
+    </resultMap>
+
+    <insert id="borrowBook" useGeneratedKeys="true">
+        INSERT INTO borrowing(member_id, book_id, start_time, expiry_time)
+            VALUE (#{memberId}, #{bookId}, NOW(), DATE_ADD(NOW(), INTERVAL #{diff} DAY));
+    </insert>
+
+    <select id="getAllBorrowings" resultMap="BorrowingResult">
+        SELECT * FROM borrowing br
+          INNER JOIN member m ON br.member_id = m.id
+          INNER JOIN book b ON br.book_id = b.id;
+    </select>
+
+    <select id="getBorrowingById" resultMap="BorrowingResult">
+        SELECT * FROM borrowing br
+          INNER JOIN member m ON br.member_id = m.id
+          INNER JOIN book b ON br.book_id = b.id
+        WHERE id = #{id};
+    </select>
+
+    <select id="getBorrowingsByMemberId" resultMap="BorrowingResult">
+        SELECT * FROM borrowing br
+          INNER JOIN member m ON br.member_id = m.id
+          INNER JOIN book b ON br.book_id = b.id
+        WHERE member_id = #{memberId};
+    </select>
+
+    <select id="getBorrowingsByBookId" resultMap="BorrowingResult">
+        SELECT * FROM borrowing br
+          INNER JOIN member m ON br.member_id = m.id
+          INNER JOIN book b ON br.book_id = b.id
+        WHERE book_id = #{bookId};
+    </select>
+
+    <select id="getBorrowingsByMemberIdAndBookId" resultMap="BorrowingResult">
+        SELECT * FROM borrowing br
+          INNER JOIN member m ON br.member_id = m.id
+          INNER JOIN book b ON br.book_id = b.id
+        WHERE member_id = #{memberId} AND book_id = #{bookId};
+    </select>
+
+    <update id="returnBook">
+        UPDATE borrowing SET return_time = NOW()
+        ORDER BY id DESC LIMIT 1;
+    </update>
+
+    <update id="extendBorrowing">
+        UPDATE borrowing SET expiry_time = DATE_ADD(expiry_time, INTERVAL #{diff} DAY)
+        ORDER BY id DESC LIMIT 1;
+    </update>
+
+    <delete id="deleteBorrowing">
+        DELETE FROM borrowing WHERE id = #{id};
+    </delete>
+
+</mapper>

@@ -17,7 +17,7 @@ public class BookController {
     }
 
     @PostMapping
-    public Book saveBook(@RequestBody Book newBook){
+    public boolean saveBook(@RequestBody Book newBook){
         return bookService.saveBook(newBook);
     }
 
@@ -32,13 +32,13 @@ public class BookController {
     }
 
     @PutMapping("/{bookId}")
-    public Book putBook(@PathVariable("bookId") int bookId,
+    public boolean putBook(@PathVariable("bookId") int bookId,
                         @RequestBody Book puttedBook){
         return bookService.putBook(bookId, puttedBook);
     }
 
     @DeleteMapping("/{bookId}")
-    public Book deleteBook(@PathVariable("bookId") int bookId){
+    public boolean deleteBook(@PathVariable("bookId") int bookId){
         return bookService.deleteBook(bookId);
     }
 }

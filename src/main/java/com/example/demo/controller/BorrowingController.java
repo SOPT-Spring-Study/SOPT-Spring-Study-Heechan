@@ -17,7 +17,7 @@ public class BorrowingController {
     }
 
     @PostMapping("/members/{memberId}/books/{bookId}")
-    public Borrowing borrowBook(@PathVariable("memberId") int memberId,
+    public boolean borrowBook(@PathVariable("memberId") int memberId,
                                 @PathVariable("bookId") int bookId) {
         return borrowingService.borrowBook(memberId, bookId);
     }
@@ -29,17 +29,17 @@ public class BorrowingController {
     }
 
     @PatchMapping("/return/books/{bookId}")
-    public Borrowing returnBook(@PathVariable("bookId") int bookId) {
+    public boolean returnBook(@PathVariable("bookId") int bookId) {
         return borrowingService.returnBook(bookId);
     }
 
     @PatchMapping("/extension/books/{bookId}")
-    public Borrowing extendDate(@PathVariable("bookId") int bookId) {
+    public boolean extendDate(@PathVariable("bookId") int bookId) {
         return borrowingService.extendDate(bookId);
     }
 
     @DeleteMapping("/{borrowingId}")
-    public Borrowing deleteBorrowing(@PathVariable("borrowingId") int borrowingId) {
+    public boolean deleteBorrowing(@PathVariable("borrowingId") int borrowingId) {
         return borrowingService.deleteBorrowing(borrowingId);
     }
 }
