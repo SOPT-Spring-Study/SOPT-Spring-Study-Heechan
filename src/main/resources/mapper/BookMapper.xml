@@ -17,7 +17,7 @@
     </select>
 
     <update id="updateBook" useGeneratedKeys="true">
-        UPDATE book SET title = #{book.title}, author = #{book.author}
+        UPDATE book SET title = #{book.title}, author = #{book.author}, `out` = #{book.out}
         WHERE id = #{id};
     </update>
 
